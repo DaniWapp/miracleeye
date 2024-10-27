@@ -1,0 +1,19 @@
+.divInput{
+    position: relative;
+    width: 100%;
+    justify-content: left;
+    text-align: left;
+    padding-bottom: 6px;
+}
+.divInput input{
+    width: 90% !important;
+    padding: 6px;
+    border:1px solid rgb(81, 81, 81);
+    border-radius: 6px;
+    margin: 4px;
+    font-size: 14px;
+    position: relative;
+}
+.divInput p{
+    padding-left: 6px;
+}

@@ -1,0 +1,10 @@
+#botones, #sBotones{
+    z-index: 9999;
+}
+#selectbotones{
+    height: 100%;
+     display: flex;
+}
+#sBotones{
+margin:4px
+}

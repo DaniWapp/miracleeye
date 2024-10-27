@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css" />
+    <script defer src="face-api.min.js"></script>
+    <script defer src="script.js"></script>
+    <style></style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="divteclado">
+        <div id="input"><input class="input" /></div>
+
+        <div id="teclado"></div>
+      </div>
+    </div>
+    <video
+      id="video"
+      width="1000"
+      height="720"
+      autoplay
+      muted
+      playsinline="true"
+    ></video>
+    <script>
+      let tmr;
+      let endWrite = true;
+      const repetidas = ["A", "C", "L", "O", "R"];
+      const vocales = [
+        "CDF",
+        "Borrar",
+        "Espacio",
+        "A",
+        "E",
+        "I",
+        "O",
+        "U",
+        "123",
+      ];
+      const consonantes = [
+        "AEI",
+        "Borrar",
+        "Espacio",
+        "B",
+        "C",
+        "D",
+        "F",
+        "G",
+        "H",
+        "J",
+        "K",
+        "L",
+        "M",
+        "N",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "V",
+        "W",
+        "X",
+        "Y",
+        "Z",
+      ];
+      const teclado = document.querySelector("#teclado");
+      const container = document.querySelector(".container");
+      let letraActual = 0;
+      let letra = "";
+      function crearTeclado(minus) {
+        //97 122
+        let min = 65;
+        let max = 90;
+        if (minus) {
+          min = 97;
+          max = 122;
+        }
+        let contenido = "";
+        for (let i = min; i <= max; i++) {
+          const letter = String.fromCharCode(i);
+
+          contenido += ` <div class="tecla t${i}">${letter}</div>`;
+        }
+        teclado.innerHTML = contenido;
+        carrusel(min, min, max, 1);
+      }
+
+      function carrusel(i, min, max, ini) {
+        let temporizador = 1000;
+        let borrar = 0;
+        let index = i;
+        if (index == max) index = 0;
+
+        if (i > min) {
+          borrar = i - 1;
+        }
+        if (i == min) {
+          borrar = max - 1;
+        }
+        if (index == max) {
+          borrar = 0;
+        }
+        //console.log("Carrusel", i, letraActual, borrar);
+        const ant = document.querySelector(".t" + borrar);
+        ant.classList.remove("foco");
+
+        const obj = document.querySelector(".t" + index);
+        obj.classList.add("foco");
+        letraActual = obj.innerHTML;
+        if (letraActual.length > 1) temporizador = 2000;
+        if (letraActual == "Espacio") letraActual = " ";
+        //return;
+        tmr = setTimeout(() => {
+          let current = i + 1;
+          if (current > max) current = min;
+          carrusel(current, min, max, ini);
+        }, temporizador);
+      }
+      function escribir() {
+        if (!endWrite) return;
+        input.focus();
+        container.style.backgroundColor = "#cfe01391";
+        setTimeout(() => {
+          container.style.backgroundColor = "#424242";
+        }, 200);
+
+        console.log("Letra Actual", letraActual);
+        if (letraActual == "Borrar") {
+          const texto = input.value;
+          const textoNuevo = texto.substring(0, texto.length - 1);
+          console.log("Borrar", texto, textoNuevo);
+          input.value = textoNuevo;
+
+          return;
+        } else {
+          let isVocal = false;
+          if (vocales.includes(letraActual)) isVocal = true;
+
+          if (letraActual.length == 1) input.value += letraActual;
+          crearTeclado2(isVocal);
+        }
+
+        endWrite = false;
+        setTimeout(() => {
+          endWrite = true;
+        }, 300);
+      }
+
+      function crearTeclado2(isVocal) {
+        //97 122
+
+        clearTimeout(tmr);
+        let array = consonantes;
+        if (!isVocal) {
+          array = vocales;
+        }
+        let min = 0;
+        let max = array.length;
+
+        let contenido = "";
+        for (let i = min; i < max; i++) {
+          const letter = array[i];
+          let clase = "";
+          if (letter.length > 1) {
+            clase = letter;
+          }
+          contenido += ` <div onclick="escribir()" class="tecla${clase} t${i}">${letter}</div>`;
+        }
+        teclado.innerHTML = contenido;
+        carrusel(min, min, max, 1);
+      }
+
+      crearTeclado2(true);
+      //crearTeclado(1);
+    </script>
+  </body>
+</html>

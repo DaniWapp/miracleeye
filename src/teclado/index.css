@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+  }
+
+  canvas {
+    position: absolute;
+  }
+.container{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color:#424242;
+    z-index: 999;
+    opacity: .9;
+    flex-wrap: wrap;
+    transition: background-color 0.2 ease-in;
+}
+video{
+    opacity: .4;
+}
+#teclado{
+    width: 550px;
+    height: 180px;
+    /*border: 1px #FFF solid;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.tecla{
+    width: 50px;
+    height: 50px;
+    border: 1px #FFF solid;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:#FFF;
+    font-size: 40px;
+    margin: 4px;
+}
+.teclaBorrar,.tecla123,.teclaAEI,.teclaCDF,.teclaEspacio{
+    
+    height: 50px;
+    border: 1px #FFF solid;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:#FFF;
+    font-size: 40px;
+    margin: 4px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#input{
+    width: 550px;
+     padding-bottom:20px;
+    margin: 0;
+}
+#input input{
+    width: 99%;
+    height: 45px;
+    font-size: 40px;
+    border-radius: 10px;
+}
+.foco{
+    background-color: yellow;
+    color:#000
+}

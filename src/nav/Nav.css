@@ -1,0 +1,29 @@
+    #menu {
+        position: fixed;
+        width: 100%;
+        height: 45px;
+        background-color: #424242;
+        opacity: 0.8;
+        z-index: 999;
+      }
+      .menuContainer {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      #divnombre{
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        padding-right: 10px;
+      }
+      #divnombre p{
+      color: #FFF;
+      }
+      .grupoRenglon{
+        display: flex;
+        align-items: center;
+      }

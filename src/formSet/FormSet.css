@@ -1,0 +1,10 @@
+.containerFormSet{
+    width: 100%;
+    padding-top: 10px;
+    position: relative;
+
+}
+.formset{
+    position: relative;
+    width: 100%;
+}
