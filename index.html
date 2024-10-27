@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Miracle-Eye</title>
+    <style>
+      #webgazerGazeDot {
+        background-image: url("/assets/eyes-CH5zG_4b.png") !important;
+        background-size: 100% !important;
+        background-color: transparent !important;
+        width: 50px !important;
+        height: 50px !important;
+      }
+      #webgazerVideoContainer {
+        z-index: 9999;
+        border: 6px solid #424242;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        bottom: 10px !important;
+        right: 10px !important;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute !important;
+        left: inherit !important;
+        top: inherit !important;
+        bottom: 0px !important;
+        right: 0 !important;
+        opacity: 0.6;
+      }
+      #webgazerFaceOverlay,
+      #webgazerVideoFeed {
+        transform: scale(-2.5, 2.5) !important;
+        margin: auto;
+      }
+      #root {
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+        font-family: Canva Sans, Noto Sans Variable, Noto Sans, -apple-system,
+          BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;
+      }
+      .consentimiento {
+        height: 35px;
+        margin-bottom: 8px;
+        font-size: 0.7rem;
+        padding: 4px;
+      }
+    </style>
+    <script>
+      const nivel = "Index DRG";
+      const minW = 200;
+    </script>
+    <script src="./src/js/webgazer.js"></script>
+    <script type="module" crossorigin src="/assets/index-sLbiCFfH.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BWT3FUuW.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
