@@ -81,7 +81,7 @@ class Functions {
   }
   async postW(url = "", method = "POST", datas = "") {
     //console.log("postW log:",datas);
-    const res = "";
+    let res = "";
     let query = "";
     try {
       if (method == "GET") {

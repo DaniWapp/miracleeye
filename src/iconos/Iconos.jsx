@@ -1,8 +1,4 @@
 import React, { useEffect, useState } from "react";
-import sms from "../assets/sms.png";
-import call from "../assets/call.png";
-import domo from "../assets/domo.png";
-import www from "../assets/www.png";
 import "./Iconos.css";
 import listaAcciones from "../js/listaAcciones";
 export default function Iconos(props) {
@@ -21,7 +17,8 @@ export default function Iconos(props) {
       let r = await JSON.stringify(res[props.accion]);
       r = r ? JSON.parse(r) : null;
       if (!r) return;
-      const img = r.img ? "/src/assets/" + r.img : "";
+      const serv = "http://wapps.com.co/miracle-eye/assets/";
+      const img = r.img ? serv + r.img : "";
       setImagen(img);
     }
     ini();

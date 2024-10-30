@@ -205,7 +205,7 @@ function App() {
         break;
 
       case "6": //SMS
-        const speech = await Functions.getCampo(idBoton + "_textospeech");
+        let speech = await Functions.getCampo(idBoton + "_textospeech");
         if (!speech) speech = "Mensaje de Prueba.";
         speak(speech);
 
@@ -221,7 +221,7 @@ function App() {
           console.log("No ifttt");
           return;
         }
-        const sms1 = await Functions.getCampo(idBoton + "_textosms");
+        let sms1 = await Functions.getCampo(idBoton + "_textosms");
         if (!sms1) sms1 = "Mensaje de Prueba.";
 
         let mensaje1 = `*${boton}* | Hola ${
